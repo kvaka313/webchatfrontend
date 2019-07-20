@@ -3,9 +3,15 @@
     <title>Chat Page</title>
     <link rel="stylesheet" href="chat.css">
   </head>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js">
+  </script>
+  <script src="./js/chat.js"></script>
   <body>
+     <div id="error"></div>
      <div id="income-messages"></div>
-     <div id="active-users"></div>
+     <ul id="active-users"></ul>
      <form>
          <input type="text" id="outcome-messages"/>
          <br>
