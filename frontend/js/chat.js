@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", myLoad);
 var ws =
-    new SockJS("http://localhost:8087/socket?Authorization=" + window.localStorage.getItem("access"));
+    new SockJS("http://127.0.0.1:8087/socket?Authorization=" + window.localStorage.getItem("access"));
 
 function myLoad() {
     document.getElementById("send").addEventListener("click", send);
@@ -18,7 +18,7 @@ function myLoad() {
             switch (event.status) {
                 case '401': {
                     refreshAccessToken();
-                    ws = new SockJS("http://localhost:8087/socket?Authorization=" + window.localStorage.getItem("access"));
+                    ws = new SockJS("http://127.0.0.1:8087/socket?Authorization=" + window.localStorage.getItem("access"));
                     break;
                 }
                 default: {
@@ -32,7 +32,7 @@ function myLoad() {
         switch(event.status){
             case '401': {
                 refreshAccessToken();
-                ws = new SockJS("http://localhost:8087/socket?Authorization=" + window.localStorage.getItem("access"));
+                ws = new SockJS("http://127.0.0.1:8087/socket?Authorization=" + window.localStorage.getItem("access"));
                 break;
             }
             default:{
@@ -117,7 +117,7 @@ function refreshAccessToken(){
         dataType: 'json',
         data: jQuery.param({
             grant_type: "refresh_token",
-            client_id: "CLIENT-UI",
+            client_id: "ADMIN-UI",
             refresh_token: window.localStorage.getItem("refresh")
         }),
         success:function(data, textstatus, error){

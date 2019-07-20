@@ -10,7 +10,7 @@ function sendLoginPassword() {
         crossOrigin: false,
         data: jQuery.param({
             grant_type: "password",
-            client_id: "CLIENT-UI",
+            client_id: "ADMIN-UI",
             username: document.getElementById("login").value,
             password: document.getElementById("password").value
         }),

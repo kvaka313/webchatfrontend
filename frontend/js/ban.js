@@ -128,7 +128,7 @@ function refreshAccessToken(){
         dataType: 'json',
         data: jQuery.param({
             grant_type: "refresh_token",
-            client_id: "CLIENT-UI",
+            client_id: "ADMIN-UI",
             refresh_token: window.localStorage.getItem("refresh")
         }),
         success:function(data, textstatus, error){
