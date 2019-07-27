@@ -27,7 +27,7 @@ function sendLoginPassword() {
             var roles = accessTokenJSON.resource_access["newwebchat"].roles;
 
             if(roles[0] == "ROLE_ADMIN"){
-                window.location.href = 'http://127.0.0.1/admin.html';
+                window.location.href = 'http://127.0.0.1/ban.html';
             } else {
                 window.location.href = 'http://127.0.0.1/chat.html';
             }

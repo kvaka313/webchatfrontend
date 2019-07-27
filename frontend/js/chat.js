@@ -56,7 +56,7 @@ function myLoad() {
                    var att = document.createAttribute("id");
                    att.value = user;
 
-                   li_tag.setAttribute(att);
+                   li_tag.setAttributeNode(att);
                    li_tag.addEventListener("click", onCLickUser);
                    document.getElementById("active-users").appendChild(li_tag);
                }
@@ -64,18 +64,20 @@ function myLoad() {
             }
 
             case "PRIVATE":{
-               var mess = receiveJson.sender+":"+receiveJson.message;
-               document.getElementById("income-messages").innerText+=mess;
+               var div_tag = document.createElement("div");
+               div_tag.innerText = receiveJson.sender+":"+receiveJson.message;
+               document.getElementById("income-messages").appendChild(div_tag);
                var br_tag = document.createElement("br");
                document.createElement("income-messages").appendChild(br_tag);
                break;
             }
 
             case "BROADCAST":{
-               var mess = "<B>"+receiveJson.sender+":"+receiveJson.message+"</B>";
-               document.getElementById("income-messages").innerText+=mess;
+               var b_tag = document.createElement("b");
+               b_tag.innerText = receiveJson.sender+":"+receiveJson.message;
+               document.getElementById("income-messages").appendChild(b_tag);
                var br_tag = document.createElement("br");
-               document.createElement("income-messages").appendChild(br_tag);
+               document.getElementById("income-messages").appendChild(br_tag);
                break;
             }
         }
@@ -141,6 +143,8 @@ function onCLickUser(obj) {
     var user = li_tag.id;
     document.getElementById("outcome-messages").value=user+":";
 }
+
+
 
 
 

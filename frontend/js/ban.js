@@ -20,11 +20,11 @@ function myLoad() {
 
                 var att = document.createAttribute("name");
                 att.value = user.login;
-                input_tag.setAttribute(att);
+                input_tag.setAttributeNode(att);
 
                 att = document.createAttribute("type");
                 att.value = "button";
-                input_tag.setAttribute(att);
+                input_tag.setAttributeNode(att);
 
                 att = document.createAttribute("value");
 
@@ -33,7 +33,7 @@ function myLoad() {
                 } else {
                     att.value = "ban";
                 }
-                input_tag.setAttribute(att);
+                input_tag.setAttributeNode(att);
 
                 input_tag.addEventListener("click", changeStatus);
 
@@ -74,7 +74,7 @@ function banUser(user){
     $.ajax({
         type: "PATCH",
         contentType: 'application/JSON',
-        url: 'http://127.0.0.1:8087/ban'+'/'+login,
+        url: 'http://127.0.0.1:8087/ban'+'/'+user,
         headers: {
             "Authorization": "bearer " + window.localStorage.getItem("access"),
         },
@@ -98,7 +98,7 @@ function unbanUser(user) {
     $.ajax({
         type: "DELETE",
         contentType: 'application/JSON',
-        url: 'http://127.0.0.1:8087/ban'+'/'+login,
+        url: 'http://127.0.0.1:8087/ban'+'/'+user,
         headers: {
             "Authorization": "bearer " + window.localStorage.getItem("access"),
         },
